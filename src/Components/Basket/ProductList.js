@@ -23,7 +23,8 @@ export default function ProductList({ products, discounts, useDiscount, changeQu
           </Button>
         }
         <Button style={{ float: "right" }} variant="dark" size="sm"
-                onClick={() => remove(product.id) }
+                onClick={() => remove(product.id)}
+                title="Remove this product from basket"
         >Remove</Button>
         <div>
           Quantity: &nbsp;

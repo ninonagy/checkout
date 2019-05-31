@@ -9,15 +9,6 @@ import BasketModal from "../Components/BasketModal";
 import firebase from "../firebase";
 
 
-function findIndex(id, array) {
-  var found = -1;
-  array.forEach((item, index) => {
-    if(item.id == id) found = index;
-  });
-  return found;
-}
-
-
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -53,41 +44,38 @@ export default class HomePage extends Component {
 
   add = (product) => {
     var copy = this.state.basket.slice(); // Copy
-    if(this.findInBasket(product.id)) {
+    var index = copy.findIndex(item => item.id == product.id);
+    if(index >= 0) {
       // Update existing product in basket, increment counter
       product.count++;
-      var index = findIndex(product.id, copy);
-      if(index => 0) copy[index] = product;
+      copy[index] = product;
       this.setState({ basket: copy });
     }
     else {
       // Update state with new product
-      product.count = 1;
+      product.count = 1; // To indicate on the product card that product is in basket
       this.setState({ basket: [...this.state.basket, product] });
     }
   }
 
   remove = (id) => {
-    var found = -1;
     var copy = this.state.basket.slice(); // Copy
-    copy.forEach((item, index) => {
-      if(item.id == id) found = index;
-    });
-    if(found >= 0) {      
-      copy.splice(found, 1); // Remove product in basket
+    var index = copy.findIndex(item => item.id == id);
+    if(index >= 0) {      
+      copy.splice(index, 1); // Remove product in basket
         // Reset product counter
         var products = this.state.products.slice(); // Copy
-        products[findIndex(id, products)].count = 0;
+        products[products.findIndex(i => i.id == id)].count = 0;
       this.setState({ basket: copy, products: products });
     }
   }
 
   handleQuantityChange = (id, value) => {
-    var copy = this.state.products;
+    var copy = this.state.basket;
     var index = copy.findIndex(item => item.id == id);
     if(index >= 0) {
       copy[index].count += value;
-      this.setState({ products: copy });
+      this.setState({ basket: copy });
     }
   }
 

@@ -17,7 +17,10 @@ export default function ProductCard({ data, showModal, onBasketClick, onBuyClick
                 variant={variant}
                 size="sm"
                 onClick={() => onBasketClick(data.id) }>
-          <i className="fas fa-shopping-cart" style={{ fontSize: "22px" }}></i>
+          <i className="fas fa-shopping-cart" 
+             style={{ fontSize: "22px" }}
+             title="Add to basket">
+          </i>
         </Button>
         <Button style={{ float: "right", width: "60%" }}
                 variant="primary"

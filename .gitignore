@@ -4,3 +4,4 @@ dist
 .firebaserc
 .firebase
 firebase.json
+package-lock.json
