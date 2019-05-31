@@ -1,0 +1,56 @@
+{
+  "products": {
+    "dfjd8f": {
+      "name": "Smart Hub",
+      "price": 49.99
+    },
+    "9fsjd2": {
+      "name": "Motion Sensor",
+      "price": 24.99
+    },
+    "19jd2d": {
+      "name": "Wireless Camera",
+      "price": 99.99
+    },
+    "01ksdj": {
+      "name": "Smoke Sensor",
+      "price": 19.99
+    },
+    "2f38jy": {
+      "name": "Water Leak Sensor",
+      "price": 14.99   
+    }
+  },
+
+  "promotions": {
+    "codes": {
+      "20%OFF": {
+        "value": 20,
+        "isPercentage": true,
+        "combineable": false
+      },
+      "5%OFF": {
+        "value": 5,
+        "isPercentage": true,
+        "combineable": true
+      },
+      "20EUROFF": {
+        "value": 20,
+        "isPercentage": false,
+        "combineable": true
+      }
+    },
+    "discounts": {
+      "1": {
+        "productId": "9fsjd2",
+        "quantity": 3,
+        "price": 65.00
+      },
+      "2": {
+        "productId": "01ksdj",
+        "quantity": 2,
+        "price": 35.00
+      }
+    }  
+  }
+}
