@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import { Card, Button }  from 'react-bootstrap';
 
+import ProductImage from '../assets/200x220.png';
+
 // function ProductCard({ name, price, history }) {
 export default function ProductCard({ data, showModal, onBasketClick, onBuyClick }) {
   const { name, price } = data;
@@ -10,7 +12,7 @@ export default function ProductCard({ data, showModal, onBasketClick, onBuyClick
 
   return(
     <Card style={{ margin: "15px" }}>
-      <Card.Img variant="top" src="https://via.placeholder.com/200x220" />
+      <Card.Img variant="top" src={ProductImage} />
       <Card.Body>
         <Card.Title align="center">{name} {price}€</Card.Title>
         <Button style={{ float: "left", width: "30%" }} 
